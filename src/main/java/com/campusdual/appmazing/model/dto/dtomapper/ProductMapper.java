@@ -13,7 +13,7 @@ public interface ProductMapper {
     //INSTANCE es una constante necesaria para que funcione que el programa internamente
     ProductMapper INSTANCE = Mappers.getMapper(ProductMapper.class);
 
-    //UN MAPPER SIEMPRE VA A TENER ESTOS 3 MÉTODOS (básicamente un mapper siver para hacer
+    //UN MAPPER SIEMPRE VA A TENER ESTOS 3 MÉTODOS (básicamente un mapper sirve para hacer
     // conversiones)
     // pasándole un producto devuelve un productDTO y se va a llamar toDTO (hace una conversión)
     ProductDTO toDTO(Product product);
