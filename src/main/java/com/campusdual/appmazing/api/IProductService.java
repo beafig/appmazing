@@ -5,9 +5,9 @@ import java.util.List;
 
 public interface IProductService {
     //CRUD (create, read, update y delete) métodos
-    ProductDTO queryProduct (ProductDTO product);
+    ProductDTO queryProduct (ProductDTO productDTO);
     List<ProductDTO> queryAllProducts();
-    int insertProduct (ProductDTO product);
-    int updateProduct (ProductDTO product);
-    int deleteProduct(ProductDTO product);
+    int insertProduct (ProductDTO productDTO);
+    int updateProduct (ProductDTO productDTO);
+    int deleteProduct(ProductDTO productDTO);
 }
