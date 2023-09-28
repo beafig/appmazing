@@ -1,6 +1,7 @@
 package com.campusdual.appmazing.controller;
 
 import com.campusdual.appmazing.api.IProductService;
+import com.campusdual.appmazing.model.Product;
 import com.campusdual.appmazing.model.dto.ProductDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -38,8 +39,25 @@ public class ProductController {
         return this.productService.queryProduct(productDTO);
      }
 
-     @GetMapping(value ="getAll")
+     @GetMapping(value ="/getAll")
      public List<ProductDTO> queryAllProducts(){
         return this.productService.queryAllProducts();
+     }
+
+     @PostMapping(value = "/add")
+     public int insertProduct(@RequestBody ProductDTO productDTO){
+        return this.productService.insertProduct(productDTO);
+     }
+
+     // hay que indicar el id para que no cree un elemento nuevo, si no que modifique el
+     // seleccionado
+     @PutMapping(value = "/update")
+     public int updateProduct(@RequestBody ProductDTO productDTO){
+        return this.productService.updateProduct(productDTO);
+     }
+
+     @DeleteMapping (value = "/remove")
+    public int deleteProduct(@RequestBody ProductDTO productDTO){
+        return this.productService.deleteProduct(productDTO);
      }
 }
