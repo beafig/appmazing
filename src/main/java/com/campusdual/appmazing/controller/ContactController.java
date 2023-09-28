@@ -1,7 +1,6 @@
 package com.campusdual.appmazing.controller;
 
 import com.campusdual.appmazing.api.IContactService;
-import com.campusdual.appmazing.model.Contact;
 import com.campusdual.appmazing.model.dto.ContactDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -15,7 +14,7 @@ import java.util.List;
 @RequestMapping("/contacts")
 public class ContactController {
     @Autowired
-    IContactService contactService;
+    private IContactService contactService;
 
     //@GetMapping: indico que es una petición de tipo GET
     @GetMapping
