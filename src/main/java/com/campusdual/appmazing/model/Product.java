@@ -9,8 +9,8 @@ import java.math.BigDecimal;
 import java.util.Date;
 
 // @Entity esta clase es una entidad, en un elemento que se puede guardar en base de datos
-@Entity
 // @Table: indicar de que tabla viene
+@Entity
 @Table(name = "PRODUCTS")
 public class Product {
     //@Id para indicar que es la clave primaria
