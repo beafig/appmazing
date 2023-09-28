@@ -55,7 +55,7 @@ public class ProductController {
         return this.productService.updateProduct(productDTO);
      }
 
-     @DeleteMapping (value = "/remove")
+     @DeleteMapping (value = "/delete")
     public int deleteProduct(@RequestBody ProductDTO productDTO){
         return this.productService.deleteProduct(productDTO);
      }

@@ -22,16 +22,6 @@ public class ContactController {
         return "Contact controller works";
     }
 
-    @PostMapping
-    public String testController(@RequestBody String name) {
-        return "Contact controller works, " + name + "!";
-    }
-
-    @GetMapping(value = "/testMethod")
-    public String testControllerMethod() {
-        return "Contact controller method works";
-    }
-
     // método que devuelve un DTO pasándole el id
     @PostMapping(value = "/get")
     public ContactDTO queryContact (@RequestBody  ContactDTO contactDTO){
@@ -55,7 +45,7 @@ public class ContactController {
         return this.contactService.updateContact(contactDTO);
     }
 
-    @DeleteMapping (value = "/remove")
+    @DeleteMapping (value = "/delete")
     public int deleteContact(@RequestBody ContactDTO contactDTO){
         return this.contactService.deleteContact(contactDTO);
     }
