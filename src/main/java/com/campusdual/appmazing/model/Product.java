@@ -30,7 +30,11 @@ public class Product {
     private boolean active;
     @Column
     private Date date_added;
-
+    // nueva columna para establecer la relación entre 2 tablas, manyToOne indica la cardinalidad
+    // en este caso es n:1, y en JoinColumn indicamos el nombre de la columna de la foreign key
+    @ManyToOne
+    @JoinColumn(name = "fk_category")
+    private Category fk_category;
     public int getId() {
         return id;
     }
@@ -77,5 +81,12 @@ public class Product {
 
     public void setDate_added(Date date_added) {
         this.date_added = date_added;
+    }
+
+    public Category getFk_category() {
+        return fk_category;
+    }
+    public void setFk_category(Category fk_category) {
+        this.fk_category = fk_category;
     }
 }

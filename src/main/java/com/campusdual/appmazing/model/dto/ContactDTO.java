@@ -14,7 +14,7 @@ public class ContactDTO {
     private String email;
 
     public int getId() {
-        return id;
+        return this.id;
     }
 
     public void setId(int id) {
@@ -22,7 +22,7 @@ public class ContactDTO {
     }
 
     public String getName() {
-        return name;
+        return this.name;
     }
 
     public void setName(String name) {
@@ -30,7 +30,7 @@ public class ContactDTO {
     }
 
     public String getFirst_surname() {
-        return first_surname;
+        return this.first_surname;
     }
 
     public void setFirst_surname(String first_surname) {
@@ -38,7 +38,7 @@ public class ContactDTO {
     }
 
     public String getSecond_surname() {
-        return second_surname;
+        return this.second_surname;
     }
 
     public void setSecond_surname(String second_surname) {
@@ -46,7 +46,7 @@ public class ContactDTO {
     }
 
     public int getPhone_number() {
-        return phone_number;
+        return this.phone_number;
     }
 
     public void setPhone_number(int phone_number) {
@@ -54,7 +54,7 @@ public class ContactDTO {
     }
 
     public String getEmail() {
-        return email;
+        return this.email;
     }
 
     public void setEmail(String email) {

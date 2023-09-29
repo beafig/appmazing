@@ -3,7 +3,7 @@ package com.campusdual.appmazing.model;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "CATEGORY")
+@Table(name = "CATEGORIES")
 public class Category {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
