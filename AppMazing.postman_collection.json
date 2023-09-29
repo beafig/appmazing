@@ -1,0 +1,379 @@
+{
+	"info": {
+		"_postman_id": "fbad6a95-d650-4329-aee6-8ec6c404a2d3",
+		"name": "AppMazing",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "25972386"
+	},
+	"item": [
+		{
+			"name": "Product Test -R",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:30030/products",
+					"host": [
+						"localhost"
+					],
+					"port": "30030",
+					"path": [
+						"products"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Product Test Method-R",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:30030/products/testMethod",
+					"host": [
+						"localhost"
+					],
+					"port": "30030",
+					"path": [
+						"products",
+						"testMethod"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Product Test -C",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "Bea",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:30030/products",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "30030",
+					"path": [
+						"products"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Product -R",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": 2\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:30030/products/get",
+					"host": [
+						"localhost"
+					],
+					"port": "30030",
+					"path": [
+						"products",
+						"get"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "All Products -R",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": 9\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:30030/products/getAll",
+					"host": [
+						"localhost"
+					],
+					"port": "30030",
+					"path": [
+						"products",
+						"getAll"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Product -C",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\" : \"Olive oil\", \r\n    \"stock\": 125,\r\n    \"price\": 4.45,\r\n    \"active\": true,\r\n    \"date_added\": \"2022-01-01T23:00:00.000+00:00\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:30030/products/add",
+					"host": [
+						"localhost"
+					],
+					"port": "30030",
+					"path": [
+						"products",
+						"add"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Product -U",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": 17,\r\n    \"name\" : \"Olive oil\", \r\n    \"stock\": 5,\r\n    \"price\": 13.45,\r\n    \"active\": true,\r\n    \"date_added\": \"2022-01-01T23:00:00.000+00:00\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:30030/products/update",
+					"host": [
+						"localhost"
+					],
+					"port": "30030",
+					"path": [
+						"products",
+						"update"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Product -D",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"id\": 10\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:30030/products/delete",
+					"host": [
+						"localhost"
+					],
+					"port": "30030",
+					"path": [
+						"products",
+						"delete"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Contact Test -R",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:30030/contacts",
+					"host": [
+						"localhost"
+					],
+					"port": "30030",
+					"path": [
+						"contacts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Contact -R",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": 1\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:30030/contacts/get",
+					"host": [
+						"localhost"
+					],
+					"port": "30030",
+					"path": [
+						"contacts",
+						"get"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "All Contacts -R",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": 2\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:30030/contacts/getAll",
+					"host": [
+						"localhost"
+					],
+					"port": "30030",
+					"path": [
+						"contacts",
+						"getAll"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Contacts -C",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Ali\",\r\n    \"first_surname\": \"Alvarez\",\r\n    \"second_surname\": \"Campo\",\r\n    \"phone_number\": 652347982,\r\n    \"email\": \"alicia@mymail.com\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:30030/contacts/add",
+					"host": [
+						"localhost"
+					],
+					"port": "30030",
+					"path": [
+						"contacts",
+						"add"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Contacts -U",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": 11,\r\n    \"name\": \"Alicia\",\r\n    \"first_surname\": \"Alvarez\",\r\n    \"second_surname\": \"Campo\",\r\n    \"phone_number\": 652347982,\r\n    \"email\": \"alicia@mymail.com\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:30030/contacts/update",
+					"host": [
+						"localhost"
+					],
+					"port": "30030",
+					"path": [
+						"contacts",
+						"update"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Contacts -D",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": 11\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:30030/contacts/delete",
+					"host": [
+						"localhost"
+					],
+					"port": "30030",
+					"path": [
+						"contacts",
+						"delete"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
