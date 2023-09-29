@@ -11,8 +11,8 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 // @Service: indica que esta clase es un servicio
-@Service("ProductService")
 // @Lazy: solo se va a cargar cuando se necesite, evita sobrecargas
+@Service("ProductService")
 @Lazy
 public class ProductService implements IProductService {
 
@@ -48,6 +48,7 @@ public class ProductService implements IProductService {
     // lo tiene solo actualiza los datos
     @Override
     public int updateProduct(ProductDTO productDTO) {
+
         return this.insertProduct(productDTO);
     }
     // método para eliminar un producto de la BD, le pasamos el dto, coge el ID de este dto, lo
