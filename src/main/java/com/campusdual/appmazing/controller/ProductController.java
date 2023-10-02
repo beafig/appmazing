@@ -4,7 +4,7 @@ import com.campusdual.appmazing.api.IProductService;
 import com.campusdual.appmazing.model.dto.ProductDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
+import java.math.BigDecimal;
 import java.util.List;
 
 //@RestController: indico que esto es un controlador REST (para hacer peticiones GET, PUT, POST,
@@ -13,6 +13,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/products")
 public class ProductController {
+    //@autowired: hace referencia a la interfaz del servicio
     @Autowired
     private IProductService productService;
 
@@ -62,5 +63,10 @@ public class ProductController {
     @PutMapping (value = "/buy")
     public int buyProduct (@RequestBody  ProductDTO productDTO){
         return this.productService.buyProduct(productDTO, 5);
+    }
+
+    @PutMapping (value = "/price")
+    public BigDecimal priceProducts(@RequestBody  ProductDTO productDTO){
+        return this.productService.priceProducts(productDTO, 2);
     }
 }

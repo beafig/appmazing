@@ -8,6 +8,8 @@ import com.campusdual.appmazing.model.dto.dtomapper.ProductMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Service;
+import java.math.BigDecimal;
+import java.math.BigInteger;
 import java.util.List;
 
 // @Service: indica que esta clase es un servicio
@@ -41,6 +43,8 @@ public class ProductService implements IProductService {
     public int insertProduct(ProductDTO productDTO) {
         Product product = ProductMapper.INSTANCE.toEntity(productDTO);
         Product product1 = this.productDAO.saveAndFlush(product);
+        // uso la entidad en lugar del DTO porque voy a devolver un int, para devolver el
+        // producto en si debería devolver el DTO y no la entidad
         return product1.getId();
     }
     // método para actualizar un producto en la BD, se llama al método insertProduct, el método
@@ -69,4 +73,22 @@ public class ProductService implements IProductService {
         }
         return productToBuy.getStock();
     }
+
+
+//    @Override
+//    public double priceProducts(ProductDTO productDTO, int quantity) {
+//        buyProduct(productDTO, quantity);
+//        double doublePrice = productDTO.getPrice().doubleValue();
+//        return doublePrice;
+//    }
+
+    @Override
+    public BigDecimal priceProducts(ProductDTO productDTO, int quantity) {
+        buyProduct(productDTO, quantity);
+        // la siguiente línea es para que me devuelva todos los datos pasándole solo el ID,
+        // si no lo pongo tendré que pasarle el DTO completo, con todos los datos
+        ProductDTO productToBuy = this.queryProduct(productDTO);
+        return productToBuy.getPrice().multiply(BigDecimal.valueOf(quantity));
+    }
+
 }
