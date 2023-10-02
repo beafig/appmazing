@@ -48,7 +48,6 @@ public class ProductService implements IProductService {
     // lo tiene solo actualiza los datos
     @Override
     public int updateProduct(ProductDTO productDTO) {
-
         return this.insertProduct(productDTO);
     }
     // método para eliminar un producto de la BD, le pasamos el dto, coge el ID de este dto, lo
@@ -60,5 +59,14 @@ public class ProductService implements IProductService {
         Product product = ProductMapper.INSTANCE.toEntity(productDTO);
         productDAO.delete(product);
         return id;
+    }
+    @Override
+    public int buyProduct(ProductDTO productDTO, int quantity) {
+        ProductDTO productToBuy = this.queryProduct(productDTO);
+        if (productToBuy.isActive() && quantity <= productToBuy.getStock()) {
+            productToBuy.setStock((productToBuy.getStock() - quantity));
+            this.updateProduct(productToBuy);
+        }
+        return productToBuy.getStock();
     }
 }

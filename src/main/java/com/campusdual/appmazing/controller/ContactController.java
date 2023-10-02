@@ -2,6 +2,7 @@ package com.campusdual.appmazing.controller;
 
 import com.campusdual.appmazing.api.IContactService;
 import com.campusdual.appmazing.model.dto.ContactDTO;
+import com.campusdual.appmazing.model.dto.ProductDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -49,4 +50,6 @@ public class ContactController {
     public int deleteContact(@RequestBody ContactDTO contactDTO){
         return this.contactService.deleteContact(contactDTO);
     }
+
+
 }
