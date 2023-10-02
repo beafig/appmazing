@@ -8,6 +8,7 @@ import com.campusdual.appmazing.model.dto.dtomapper.ProductMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Service;
+
 import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.util.List;
@@ -30,12 +31,14 @@ public class ProductService implements IProductService {
         ProductDTO dto = ProductMapper.INSTANCE.toDTO(productFinal);
         return dto;
     }
+
     //query para ver una lista de todos los productos, se los pide al DAO que es el que conecta
     // con la BD
     @Override
     public List<ProductDTO> queryAllProducts() {
         return ProductMapper.INSTANCE.toDTOList(this.productDAO.findAll());
     }
+
     // insertProduct sirve para añadir un nuevo producto, le pasamos el DTO con todos los datos
     // menos el ID (ya que es autoincremental y se genera solo en la BD) lo convierte a modelo
     // (entidad) y una vez que tenemos el modelo le indicamos al DAO que lo añada
@@ -47,6 +50,7 @@ public class ProductService implements IProductService {
         // producto en si debería devolver el DTO y no la entidad
         return product1.getId();
     }
+
     // método para actualizar un producto en la BD, se llama al método insertProduct, el método
     // saveAndFlush dentro de este hace que si el modelo no tiene ID lo inserta en la BD, pero si
     // lo tiene solo actualiza los datos
@@ -54,6 +58,7 @@ public class ProductService implements IProductService {
     public int updateProduct(ProductDTO productDTO) {
         return this.insertProduct(productDTO);
     }
+
     // método para eliminar un producto de la BD, le pasamos el dto, coge el ID de este dto, lo
     // convierte a modelo/entidad y le indica al DAO que elimine este elemento de la BD, devuelve
     // el id a modo informativo ya que no podemos hacer nada con ese id que ya no existe en la BD
@@ -64,6 +69,7 @@ public class ProductService implements IProductService {
         productDAO.delete(product);
         return id;
     }
+
     @Override
     public int buyProduct(ProductDTO productDTO, int quantity) {
         ProductDTO productToBuy = this.queryProduct(productDTO);
@@ -74,21 +80,18 @@ public class ProductService implements IProductService {
         return productToBuy.getStock();
     }
 
-
-//    @Override
-//    public double priceProducts(ProductDTO productDTO, int quantity) {
-//        buyProduct(productDTO, quantity);
-//        double doublePrice = productDTO.getPrice().doubleValue();
-//        return doublePrice;
-//    }
-
     @Override
     public BigDecimal priceProducts(ProductDTO productDTO, int quantity) {
-        buyProduct(productDTO, quantity);
         // la siguiente línea es para que me devuelva todos los datos pasándole solo el ID,
         // si no lo pongo tendré que pasarle el DTO completo, con todos los datos
         ProductDTO productToBuy = this.queryProduct(productDTO);
-        return productToBuy.getPrice().multiply(BigDecimal.valueOf(quantity));
+        if (productToBuy.isActive() && quantity <= productToBuy.getStock()) {
+            buyProduct(productDTO, quantity);
+            return productToBuy.getPrice().multiply(BigDecimal.valueOf(quantity));
+        } else {
+            BigDecimal empty = new BigDecimal(0);
+            return empty;
+        }
     }
 
 }
