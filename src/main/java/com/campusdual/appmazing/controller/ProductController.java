@@ -77,7 +77,7 @@ public class ProductController {
     //
     @PostMapping(value = "/price")
     public BigDecimal buyAndShowTotalPrice(@RequestBody ProductDTO productDTO) {
-        int quantity = 2;
+        int quantity = 4;
         //la lógica de comprar la pongo aquí, así mi método buyAndShowTotalPrice tiene una lógica
         // independiente, y podría solo crear otro controlador para ver el precio, pero que no
         // comprase, es decir, que no sacara de stock.

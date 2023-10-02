@@ -78,7 +78,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"id\": 2\r\n}",
+					"raw": "{\r\n    \"id\": 6\r\n    \r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -165,7 +165,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"id\": 17,\r\n    \"name\" : \"Olive oil\", \r\n    \"stock\": 5,\r\n    \"price\": 13.45,\r\n    \"active\": true,\r\n    \"date_added\": \"2022-01-01T23:00:00.000+00:00\"\r\n}",
+					"raw": "{\r\n    \"id\": 6,\r\n    \"name\": \"Oranges\",\r\n    \"stock\": 500,\r\n    \"price\": 1.89,\r\n    \"active\": true,\r\n    \"date_added\": \"2022-12-31T23:00:00.000+00:00\",\r\n    \"fk_category\": {\r\n        \"id\": 1,\r\n        \"name\": \"Fresh\"\r\n    }\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -209,6 +209,90 @@
 					"path": [
 						"products",
 						"delete"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Product BUY5",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"id\": 6\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:30030/products/buy5",
+					"host": [
+						"localhost"
+					],
+					"port": "30030",
+					"path": [
+						"products",
+						"buy5"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Product BUY",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"id\": 6\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:30030/products/buy",
+					"host": [
+						"localhost"
+					],
+					"port": "30030",
+					"path": [
+						"products",
+						"buy"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Product Price",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"id\":3\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:30030/products/price",
+					"host": [
+						"localhost"
+					],
+					"port": "30030",
+					"path": [
+						"products",
+						"price"
 					]
 				}
 			},
@@ -459,7 +543,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"name\" : \"Conservas\"\r\n}",
+					"raw": "{\r\n    \"name\" : \"Conserva\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -487,7 +571,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"id\": 4,\r\n    \"name\" : \"Conserva\"\r\n}",
+					"raw": "{\r\n    \"id\": 3,\r\n    \"name\" : \"Preserve\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
