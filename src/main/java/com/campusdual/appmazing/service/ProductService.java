@@ -80,18 +80,24 @@ public class ProductService implements IProductService {
         return productToBuy.getStock();
     }
 
+//    @Override
+//    public BigDecimal totalPrice(ProductDTO productDTO, int quantity) {
+//        ProductDTO productToBuy = this.queryProduct(productDTO);
+//        return productToBuy.getPrice().multiply(BigDecimal.valueOf(quantity));
+//    }
     @Override
-    public BigDecimal priceProducts(ProductDTO productDTO, int quantity) {
+    public BigDecimal buyAndShowTotalPrice(ProductDTO productDTO, int quantity) {
         // la siguiente línea es para que me devuelva todos los datos pasándole solo el ID,
         // si no lo pongo tendré que pasarle el DTO completo, con todos los datos
         ProductDTO productToBuy = this.queryProduct(productDTO);
         if (productToBuy.isActive() && quantity <= productToBuy.getStock()) {
-            buyProduct(productDTO, quantity);
+            //buyProduct(productDTO, quantity); -- lo pongo en el controlador
             return productToBuy.getPrice().multiply(BigDecimal.valueOf(quantity));
         } else {
             BigDecimal empty = new BigDecimal(0);
             return empty;
         }
     }
+
 
 }

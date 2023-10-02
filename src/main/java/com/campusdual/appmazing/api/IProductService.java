@@ -12,5 +12,5 @@ public interface IProductService {
     int updateProduct (ProductDTO productDTO);
     int deleteProduct(ProductDTO productDTO);
     int buyProduct(ProductDTO productDTO, int quantity);
-    BigDecimal priceProducts (ProductDTO productDTO, int quantity);
+    BigDecimal buyAndShowTotalPrice(ProductDTO productDTO, int quantity);
 }
