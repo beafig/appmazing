@@ -4,9 +4,9 @@ import com.campusdual.appmazing.api.IProductService;
 import com.campusdual.appmazing.model.dto.ProductDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
 import java.math.BigDecimal;
 import java.util.List;
+import java.util.Map;
 
 //@RestController: indico que esto es un controlador REST (para hacer peticiones GET, PUT, POST,
 // DELETE)
@@ -62,24 +62,29 @@ public class ProductController {
         return this.productService.deleteProduct(productDTO);
     }
 
-    @PutMapping(value = "/buy")
+    // aunque con los métodos buyProduct() se actualiza la BD, se usa el método POST y no el PUT
+    // porque le estoy pidiendo que me devuelva datos y no le paso el DTO completo, si no
+    // solamente el ID. Si paso el DTO completo y nada más y lo uso para actualizar datos uso
+    // PUT, sino siempre POST.
+    @PostMapping(value = "/buy5")
     public int buyProduct(@RequestBody ProductDTO productDTO) {
         int quantity = 5;
         return this.productService.buyProduct(productDTO, quantity);
     }
 
-    //    @PostMapping(value = "/buy")
-//    public BigDecimal priceProducts(@RequestBody Map<String, Integer> body) {
-//        int quantity = body.get("quantity");
-//        ProductDTO productDTO = new ProductDTO();
-//        return this.productService.priceProducts(productDTO, quantity);
-//    }
-    //
+    @PostMapping(value = "/buy")
+    public int buyProduct(@RequestBody Map<String, Integer> body) {
+        int quantity = body.get("quantity");
+        ProductDTO productDTO = new ProductDTO();
+        productDTO.setId(body.get("id"));
+        return this.productService.buyProduct(productDTO, quantity);
+    }
+
     @PostMapping(value = "/price")
     public BigDecimal buyAndShowTotalPrice(@RequestBody ProductDTO productDTO) {
         int quantity = 4;
         //la lógica de comprar la pongo aquí, así mi método buyAndShowTotalPrice tiene una lógica
-        // independiente, y podría solo crear otro controlador para ver el precio, pero que no
+        // independiente, y podría crear otro controlador para ver el precio, pero que no
         // comprase, es decir, que no sacara de stock.
         this.productService.buyProduct(productDTO, quantity);
         return this.productService.buyAndShowTotalPrice(productDTO, quantity);
