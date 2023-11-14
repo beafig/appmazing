@@ -9,7 +9,7 @@ public class ContactDTO {
 
     private String second_surname;
 
-    private int phone_number;
+    private String phone_number;
 
     private String email;
 
@@ -45,11 +45,11 @@ public class ContactDTO {
         this.second_surname = second_surname;
     }
 
-    public int getPhone_number() {
+    public String getPhone_number() {
         return this.phone_number;
     }
 
-    public void setPhone_number(int phone_number) {
+    public void setPhone_number(String phone_number) {
         this.phone_number = phone_number;
     }
 
